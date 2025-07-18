@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .card, .card2 {
+            width: 35%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            color: black;
+        }
+
+        .card2 {
+            background-color: blue;
+            color: white;
+        }
+
+        .profile-img {
+            border-radius: 10px;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .position, .position2 {
+            font-size: 18px; /* Reduced font size */
+            margin: 20px 0 10px 0;
+            line-height: 1.5;
+        }
+
+        button {
+            background-color: #049604;
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 14px; /* Reduced font size */
+            margin-top: 15px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .stats {
+            margin-top: 10px;
+            font-size: 14px; /* Reduced font size */
+        }
+
+        /* Added media query for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card, .card2 {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+            .profile-img {
+                width: 100%;
+                height: auto;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Profile Card</h1>
+
+    <div class="container">
+        <div class="card">
+            <img class="profile-img" src="mgg.jpg" alt="An image of myself">
+            <h2>Olatunji Abimola &#x2705;</h2>
+            <p class="position">
+                Cybersecurity Analyst,<br>
+                Web Developer,<br>
+                Software Developer,<br>
+                Director of Operations at The Growth Hub.
+            </p>
+            <p class="stats"><b>408</b> followers &nbsp;&nbsp;&nbsp;&nbsp; <b>98</b> posts</p>
+            <button>+ Follow</button>
+        </div>
+
+        <div class="card2">
+            <img class="profile-img" src="mgg.jpg" alt="An image of myself">
+            <h2>Olatunji Abimbola &#x2705;</h2>
+            <p class="position2">
+                Cybersecurity Analyst,<br>
+                Web Developer,<br>
+                Software Developer,<br>
+                Director of Operations at The Growth Hub.
+            </p>
+            <p class="stats"><b>408</b> followers &nbsp;&nbsp;&nbsp;&nbsp; <b>98</b> posts</p>
+            <button>+ Follow</button>
+        </div>
+    </div>      
+</body>
+</html>
