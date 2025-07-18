@@ -1,0 +1,194 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Emma Phone Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: green;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .phone {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+        }
+        
+        .phone img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .phone h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .phone p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .phone button {
+            background-color: #FF9900;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: auto;
+        }
+        
+        .phone button:hover {
+            background-color: #FFA07A;
+        }
+        
+        #view-cart {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        #view-cart:hover {
+            background-color: #3e8e41;
+        }
+        
+        #cart {
+            display: none;
+            padding: 20px;
+        }
+        
+        #payment-form {
+            display: none;
+            padding: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Phone Store</h1>
+    </div>
+    <div class="container">
+        <div class="phone">
+            <img src="nhi.jpeg" alt="Tecno Phone" class="tecno-image">
+            <h2>Tecno Phone: Unleash Your Creativity</h2>
+            <p>Experience the power of Tecno with our latest phone model. With advanced features and sleek design, this phone is perfect for capturing life's moments and staying connected with loved ones.</p>
+            <p class="price">₦80,000</p>
+            <button onclick="addToCart('Tecno Phone: Unleash Your Creativity', 80000)">Add to Cart</button>
+        </div>
+        <div class="phone">
+            <img src="nac.jpeg" alt="Samsung Phone" class="samsung-image">
+            <h2>Samsung Phone</h2>
+            <p>Discover the world of Samsung with our latest phone model. With cutting-edge technology and innovative features, this phone is perfect for anyone looking for a reliable and powerful device.</p>
+            <p class="price">₦200,000</p>
+            <button onclick="addToCart('Samsung Phone', 200000)">Add to Cart</button>
+        </div>
+        <div class="phone">
+            <img src="iphone1.jpg" alt="iPhone" class="iphone-image">
+            <h2>iPhone</h2>
+            <p>Experience the elegance and sophistication of iPhone with our latest model. With sleek design and advanced features, this phone is perfect for anyone looking for a premium device.</p>
+            <p class="price">₦320,000</p>
+            <button onclick="addToCart('iPhone', 320000)">Add to Cart</button>
+        </div>
+        <div class="phone">
+            <img src="nokia11.jpg" alt="Nokia Phone">
+            <h2>Nokia Phone</h2>
+            <p>Discover the reliability and durability of Nokia with our latest phone model. With advanced features and long-lasting battery life, this phone is perfect for anyone looking for a dependable device.</p>
+            <p class="price">₦120,000</p>
+            <button onclick="addToCart('Nokia Phone', 120000)">Add to Cart</button>
+        </div>
+    </div>
+    <button id="view-cart" onclick="viewCart()">View Cart</button>
+    <div id="cart">
+        <h2>Cart</h2>
+        <pre id="cart-list"></pre>
+        <button id="proceed-to-payment" onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+    <div id="payment-form">
+        <h2>Payment Form</h2>
+        <form>
+            <label for="expiration-date">Account NO to make payment- 8035800906:</label><br>
+            <lable for="address">Input address or prefered delivery place</lable>
+            <label for="cvv"></label>
+            <input type="text" id="cvv" name="cvv"><br>
+            <button id="make-payment" onclick="makePayment()">Make Payment</button>
+        </form>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({name: name, price: price});
+            alert(`Added ${name} to cart. Price: ₦${price}`);
+        }
+
+        function viewCart() {
+            let cartList = '';
+            let totalPrice = 0;
+            cart.forEach(item => {
+                cartList += `${item.name} - ₦${item.price}\n`;
+                totalPrice += item.price;
+            });
+            cartList += `\nTotal: ₦${totalPrice}`;
+            document.getElementById('cart-list').innerText = cartList;
+            document.getElementById('cart').style.display = document.getElementById('cart').style.display === 'block' ? 'none' : 'block';
+        }
+
+        function proceedToPayment() {
+            document.getElementById('payment-form').style.display = 'block';
+        }
+        
+        function makePayment() {
+            alert('Payment successful! Thanks your goods will be delivered to you in a few minutes time  ');
+            // Add payment logic here
+        }
+    </script>
+</body>
+</html>
